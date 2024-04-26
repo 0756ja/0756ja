@@ -1,0 +1,59 @@
+```foods
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title >Food Ordering</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styling -->
+  <body background ="https://images.app.goo.gl/qD4FcyFkwVEbcxth6">
+  <h1>Welcome to  Jamie foods </h1>
+  
+
+  <!-- Order Form -->
+  <form id="orderForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" required>
+
+    <label for="foodItem">Food Item:</label>
+    <select id="foodItem" required>
+      <option value="">Select an item</option>
+      <option value="pizza">Pizza</option>
+      <option value="burger">Burger</option>
+      <option value="pasta">Pasta</option>
+      <option value ="matooke">matooke</option>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" min="1" required>
+
+    <button type="submit">Place Order</button>
+  </form>
+
+  <!-- Order Summary -->
+  <div id="orderSummary" class="hidden">
+    <h2>Order Summary</h2>
+    <p>Name: <span id="summaryName"></span></p>
+    <p>Food Item: <span id="summaryFoodItem"></span></p>
+    <p>Quantity: <span id="summaryQuantity"></span></p>
+  </div>
+
+  <script>
+    // JavaScript code for form submission and order summary display
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get form values
+      var name = document.getElementById("name").value;
+      var foodItem = document.getElementById("foodItem").value;
+      var quantity = document.getElementById("quantity").value;
+
+      // Display order summary
+      document.getElementById("summaryName").textContent = name;
+      document.getElementById("summaryFoodItem").textContent = foodItem;
+      document.getElementById("summaryQuantity").textContent = quantity;
+      document.getElementById("orderSummary").classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
+```
